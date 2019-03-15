@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
+  font-family: "Arvo";
   display: flex;
   flex-direction: column;
   align-items: flex-start;
