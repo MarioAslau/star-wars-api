@@ -31,12 +31,3 @@ export const Header = styled.div`
   font-size: calc(10px + 2vmin);
   color: white;
 `;
-
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }

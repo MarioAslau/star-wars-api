@@ -50,7 +50,8 @@ class App extends Component {
   };
 
   onSubmit = name => {
-    const displayablePerson = this.state.searchResult.find(
+    const dummy = this.state.searchResult;
+    const displayablePerson = dummy.find(
       person => person.name.toLowerCase().indexOf(name.toLowerCase()) > -1
     );
     this.setState({ displayablePerson });
