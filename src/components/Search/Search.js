@@ -1,23 +1,24 @@
-import React, { Component, Fragment } from "react";
-import PropTypes from "prop-types";
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { faJedi } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Input,
   NoSuggestion,
   Suggestions,
   ListItem,
   Button,
-  Container
-} from "./Search.styles";
-import { faJedi } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  Container,
+  Flex,
+} from './Search.styles';
 
 class Search extends Component {
   state = {
     activeSuggestion: 0,
     filteredSuggestions: [],
     showSuggestions: false,
-    searchInput: "",
-    selected: false
+    searchInput: '',
+    selected: false,
   };
 
   onChange = e => {
@@ -34,7 +35,7 @@ class Search extends Component {
       filteredSuggestions,
       showSuggestions: true,
       searchInput: e.currentTarget.value,
-      selected: false
+      selected: false,
     });
   };
 
@@ -44,7 +45,7 @@ class Search extends Component {
       filteredSuggestions: [],
       showSuggestions: false,
       searchInput: e.currentTarget.innerText,
-      selected: true
+      selected: true,
     });
     // console.log(this.state);
   };
@@ -57,7 +58,7 @@ class Search extends Component {
         activeSuggestion: 0,
         showSuggestions: false,
         searchInput: filteredSuggestions[activeSuggestion].name,
-        selected: true
+        selected: true,
       });
     } else if (e.keyCode === 38) {
       if (activeSuggestion === 0) {
@@ -77,7 +78,7 @@ class Search extends Component {
   onSumit = () => {
     const {
       state: { selected, searchInput },
-      props: { onSubmit }
+      props: { onSubmit },
     } = this;
     if (selected) {
       onSubmit(searchInput);
@@ -94,8 +95,8 @@ class Search extends Component {
         activeSuggestion,
         filteredSuggestions,
         showSuggestions,
-        searchInput
-      }
+        searchInput,
+      },
     } = this;
 
     let suggestionsListComponent;
@@ -133,7 +134,7 @@ class Search extends Component {
 
     return (
       <Container>
-        <div>
+        <Flex>
           <Input
             type="text"
             onChange={onChange}
@@ -141,9 +142,9 @@ class Search extends Component {
             value={searchInput}
           />
           {suggestionsListComponent}
-        </div>
+        </Flex>
         <Button type="button" onClick={onSumit}>
-          <FontAwesomeIcon icon={faJedi} size="2x" />
+          <FontAwesomeIcon icon={faJedi} size="2x" color="#fae042" />
         </Button>
       </Container>
     );
@@ -151,10 +152,10 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-  suggestions: PropTypes.instanceOf(Array)
+  suggestions: PropTypes.instanceOf(Array),
 };
 
 Search.defaultProps = {
-  suggestions: []
+  suggestions: [],
 };
 export default Search;

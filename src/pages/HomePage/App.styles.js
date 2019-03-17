@@ -1,12 +1,16 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   text-align: center;
+  background-color: #282c34;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Body = styled.div`
-  background-color: #282c34;
   min-height: 100vh;
+  max-width: 800px
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +20,7 @@ export const Body = styled.div`
 `;
 
 export const Logo = styled.img`
-  height: 40vmin;
+  height: 30vmin;
   pointer-events: none;
   padding: 2rem 0rem;
 `;

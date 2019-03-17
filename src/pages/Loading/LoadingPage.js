@@ -1,14 +1,14 @@
 import React from "react";
 import logo from "../../assets/images/rebel.png";
-import "./Loading.css";
+import { Loading, Logo, Header } from "./Loading.styles";
 
 const LoadingPage = () => (
-  <div className="Loading">
-    <header className="Loading-header">
-      <img src={logo} className="Loading-logo" alt="logo" />
+  <Loading>
+    <Header>
+      <Logo src={logo} alt="logo" />
       <p>Page is loading...</p>
-    </header>
-  </div>
+    </Header>
+  </Loading>
 );
 
 export default LoadingPage;

@@ -1,19 +1,20 @@
-import React, { Component } from "react";
-import logo from "../../assets/images/logo.svg";
-import swLogo from "../../assets/images/Star_Wars_Yellow_Logo.svg";
-import Loading from "../Loading/LoadingPage";
-import { Container, Body, Form, Input, Logo } from "./App.styles";
-import Axios from "axios";
-import Search from "../../components/Search/Search";
-import Person from "../../components/Person/Person";
-const API = "https://swapi.co/api/people";
-const DEFAULT_PERSON = "LUKE";
+import React, { Component } from 'react';
+import Axios from 'axios';
+import logo from '../../assets/images/logo.svg';
+import swLogo from '../../assets/images/Star_Wars_Yellow_Logo.svg';
+import Loading from '../Loading/LoadingPage';
+import { Container, Body, Form, Input, Logo } from './App.styles';
+import Search from '../../components/Search/Search';
+import Person from '../../components/Person/Person';
+
+const API = 'https://swapi.co/api/people';
+const DEFAULT_PERSON = 'LUKE';
 
 class App extends Component {
   state = {
-    searchInput: "",
+    searchInput: '',
     searchResult: [],
-    displayablePerson: null
+    displayablePerson: null,
   };
 
   getPeople = (url, people, resolve, reject) => {
@@ -28,13 +29,13 @@ class App extends Component {
       })
       .catch(error => {
         console.log(error);
-        reject("Does not work right");
+        reject('Does not work right');
       });
   };
 
   updateSearchResult = response => {
     this.setState(() => ({
-      searchResult: response
+      searchResult: response,
     }));
   };
 
@@ -51,27 +52,27 @@ class App extends Component {
       person => person.name.toLowerCase().indexOf(name.toLowerCase()) > -1
     );
     this.setState(
-      { displayablePerson: displayablePerson },
-      console.log("displayablePerson:", this.state.displayablePerson)
+      { displayablePerson },
+      console.log('displayablePerson:', this.state.displayablePerson)
     );
   };
 
   handleChange = event => {
     this.setState({
-      searchInput: event.target.value
+      searchInput: event.target.value,
     });
   };
 
   render() {
     const { searchResult, searchInput, displayablePerson } = this.state;
-
+    console.log(displayablePerson);
     if (searchResult.length === 0) return <Loading />;
     return (
       <Container>
         <Body>
           <Logo src={swLogo} alt="logo" />
           <Search suggestions={searchResult} onSubmit={this.onSubmit} />
-          {!!displayablePerson ? <Person person={displayablePerson} /> : null}
+          {displayablePerson ? <Person person={displayablePerson} /> : null}
         </Body>
       </Container>
     );
