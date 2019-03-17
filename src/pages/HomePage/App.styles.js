@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   text-align: center;
-  background-color: #282c34;
+  background-color: ${props => props.theme.background.primary};
   display: flex;
   justify-content: center;
 `;

@@ -17,9 +17,12 @@ export const MainCard = styled.div`
     !props.secondary ? 'margin: 5px 10px 25px' : 'margin: 10px 10px'};
   ${props =>
     !props.secondary
-      ? 'background-color: #eb524a;'
-      : 'background-color: #dee0e2'};
-  ${props => (!props.secondary ? 'color: white' : 'color: black;')};
+      ? `background-color: ${props.theme.background.lightRed};`
+      : `background-color: ${props.theme.background.white}`};
+  ${props =>
+    !props.secondary
+      ? `color: ${props.theme.text.white};`
+      : `color: ${props.theme.text.black};`};
   border-radius: 5px;
   text-align: center;
   line-height: 15pt;
@@ -33,9 +36,9 @@ export const MainCard = styled.div`
 export const Button = styled.button`
   /* bottom: 0; */
   ${props => (!props.clicked ? 'right: 31%' : 'right: 20px')};
-  background-color: #1c1e22;
-  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2);
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: ${props => props.theme.background.black};
+  box-shadow: inset 0 -5px 45px ${props => props.theme.shadow.dark};
+  border: 1px solid ${props => props.theme.background.secondary};
   border-radius: 60px;
   color: white;
   font-family: 'Press Start 2P';
