@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 const spin = keyframes`
   from {
@@ -11,7 +11,7 @@ const spin = keyframes`
 
 export const Loading = styled.div`
   text-align: center;
-  font-family: "Press Start 2P";
+  font-family: 'Press Start 2P';
 `;
 
 export const Logo = styled.img`

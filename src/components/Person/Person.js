@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { faJedi } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { Container, MainCard, Button } from './Person.styles';
 
 class Person extends Component {
@@ -21,13 +20,11 @@ class Person extends Component {
       state: { displayStatus },
       changeDisplay,
     } = this;
-    console.log('Props', person);
     return (
       <Container>
         <MainCard secondary={false}>
           <p>Name:{!!person && person.name}</p>
           <Button type="button" onClick={changeDisplay} clicked={displayStatus}>
-            {/* <FontAwesomeIcon icon={faJedi} size="2x" color="#fae042" /> */}
             {displayStatus ? <p>X</p> : <p>More Info</p>}
           </Button>
         </MainCard>
@@ -66,5 +63,13 @@ class Person extends Component {
     );
   }
 }
+
+Person.propTypes = {
+  person: PropTypes.object,
+};
+
+Person.defaultProps = {
+  person: null,
+};
 
 export default Person;

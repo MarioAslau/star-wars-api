@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   font-family: 'Press Start 2P';
@@ -6,14 +6,6 @@ export const Container = styled.div`
   flex-direction: column;
   max-width: 400px;
   width: 100%;
-  /* align-items: flex-start;
-  border: 1px solid #999;
-  border-radius: 5px;
-  padding: 1rem;
-  margin: 1rem 0;
-  /* width: 235px;
-  color: black;w
-  background-color: white; */
   font-size: 16px;
 `;
 
@@ -26,7 +18,7 @@ export const MainCard = styled.div`
   ${props =>
     !props.secondary
       ? 'background-color: #eb524a;'
-      : 'background-color: #e8eaf6'};
+      : 'background-color: #dee0e2'};
   ${props => (!props.secondary ? 'color: white' : 'color: black;')};
   border-radius: 5px;
   text-align: center;

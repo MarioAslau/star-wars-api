@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { faJedi } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -156,9 +156,11 @@ class Search extends Component {
 
 Search.propTypes = {
   suggestions: PropTypes.instanceOf(Array),
+  onSubmit: PropTypes.func,
 };
 
 Search.defaultProps = {
   suggestions: [],
+  onSubmit: () => {},
 };
 export default Search;

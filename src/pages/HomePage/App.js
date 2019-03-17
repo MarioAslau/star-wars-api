@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import logo from '../../assets/images/logo.svg';
 import swLogo from '../../assets/images/Star_Wars_Yellow_Logo.svg';
 import Loading from '../Loading/LoadingPage';
-import { Container, Body, Form, Input, Logo } from './App.styles';
+import { Container, Body, Logo } from './App.styles';
 import Search from '../../components/Search/Search';
 import Person from '../../components/Person/Person';
 
 const API = 'https://swapi.co/api/people';
-const DEFAULT_PERSON = 'LUKE';
 
 class App extends Component {
   state = {
-    searchInput: '',
     searchResult: [],
     displayablePerson: null,
   };
@@ -51,10 +48,7 @@ class App extends Component {
     const displayablePerson = this.state.searchResult.find(
       person => person.name.toLowerCase().indexOf(name.toLowerCase()) > -1
     );
-    this.setState(
-      { displayablePerson },
-      console.log('displayablePerson:', this.state.displayablePerson)
-    );
+    this.setState({ displayablePerson });
   };
 
   handleChange = event => {
@@ -64,8 +58,7 @@ class App extends Component {
   };
 
   render() {
-    const { searchResult, searchInput, displayablePerson } = this.state;
-    console.log(displayablePerson);
+    const { searchResult, displayablePerson } = this.state;
     if (searchResult.length === 0) return <Loading />;
     return (
       <Container>
