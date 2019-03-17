@@ -22,8 +22,6 @@ class Search extends Component {
   };
 
   onChange = e => {
-    // console.log("On change triggered");
-    // console.log(this.state);
     const { suggestions } = this.props;
     const searchInput = e.currentTarget.value;
     const filteredSuggestions = suggestions.filter(
@@ -72,7 +70,6 @@ class Search extends Component {
       }
       this.setState({ activeSuggestion: activeSuggestion + 1 });
     }
-    // console.log(this.state);
   };
 
   onSumit = () => {

@@ -7,6 +7,7 @@ export const Container = styled.div`
   max-width: 400px;
   width: 100%;
   font-size: 16px;
+  padding-bottom: 10px;
 `;
 
 export const MainCard = styled.div`
