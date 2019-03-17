@@ -80,6 +80,9 @@ class Search extends Component {
       state: { selected, searchInput },
       props: { onSubmit },
     } = this;
+    this.setState({
+      showSuggestions: false,
+    });
     if (selected) {
       onSubmit(searchInput);
     }
