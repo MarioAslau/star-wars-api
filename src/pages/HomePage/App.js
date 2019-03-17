@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 import swLogo from '../../assets/images/Star_Wars_Yellow_Logo.svg';
 import Loading from '../Loading/LoadingPage';
 import { Container, Body, Logo } from './App.styles';
 import Search from '../../components/Search/Search';
 import Person from '../../components/Person/Person';
+import SwitchButton from '../../components/Switch/Switch';
+import { lightTheme, darkTheme } from '../../config/theme';
 
 const API = 'https://swapi.co/api/people';
 
@@ -59,17 +64,34 @@ class App extends Component {
 
   render() {
     const { searchResult, displayablePerson } = this.state;
+    const theme = !this.props.checked ? darkTheme : lightTheme;
+
     if (searchResult.length === 0) return <Loading />;
     return (
-      <Container>
-        <Body>
-          <Logo src={swLogo} alt="logo" />
-          <Search suggestions={searchResult} onSubmit={this.onSubmit} />
-          {displayablePerson ? <Person person={displayablePerson} /> : null}
-        </Body>
-      </Container>
+      <ThemeProvider theme={theme}>
+        <Container>
+          <Body>
+            <SwitchButton />
+            <Logo src={swLogo} alt="logo" />
+            <Search suggestions={searchResult} onSubmit={this.onSubmit} />
+            {displayablePerson ? <Person person={displayablePerson} /> : null}
+          </Body>
+        </Container>
+      </ThemeProvider>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  checked: state.switch,
+});
+
+App.propTypes = {
+  checked: PropTypes.bool,
+};
+
+App.defaultProps = {
+  checked: true,
+};
+
+export default connect(mapStateToProps)(App);

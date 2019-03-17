@@ -9,7 +9,7 @@ const SwitchButton = props => {
   const { checked, changeSwitch } = props;
   return (
     <Label htmlFor="normal-switch">
-      {checked ? <Text light> Ligthen up</Text> : <Text>Tone it down</Text>}
+      {checked ? <Text light>Jedi</Text> : <Text>Sith</Text>}
       <Switch
         onChange={changeSwitch}
         checked={checked}

@@ -1,5 +1,6 @@
 const colors = {
   background: {
+    darkSide: '#191919',
     black: '#1c1e22',
     darkBlue: '#282c34;',
     dark: 'rgba(0, 0, 0, 0.3)',
@@ -29,7 +30,7 @@ const shadow = {
   light: 'rgba(255, 255, 255, 0.2)',
 };
 
-const theme = {
+const lightTheme = {
   background: {
     primary: `${colors.background.darkBlue}`,
     secondary: `${colors.background.dark}`,
@@ -50,4 +51,25 @@ const theme = {
   },
 };
 
-export default theme;
+const darkTheme = {
+  background: {
+    primary: `${colors.background.darkSide}`,
+    secondary: `${colors.background.dark}`,
+    black: `${colors.background.black}`,
+    lightRed: `${colors.background.lightRed}`,
+    white: `${colors.background.white}`,
+  },
+  shadow: {
+    dark: `${shadow.dark}`,
+    medium: `${shadow.darkMedium}`,
+    light: `${shadow.light}`,
+  },
+  text: {
+    black: `${colors.text.black}`,
+    grey: `${colors.text.grey}`,
+    white: `${colors.text.white}`,
+    gold: `${colors.text.gold}`,
+  },
+};
+
+export { lightTheme, darkTheme };

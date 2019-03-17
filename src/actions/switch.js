@@ -1,4 +1,4 @@
-const changeTheme = check => (dispatch, getState) =>
+const changeTheme = check => dispatch =>
   dispatch({
     type: 'CHANGE_SWITCH',
     check,

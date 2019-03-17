@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { faJedi } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {
   Input,
   NoSuggestion,
@@ -98,7 +99,7 @@ class Search extends Component {
         searchInput,
       },
     } = this;
-
+    // const allegiance = checked ? faJedi : faGalacticSenate;
     let suggestionsListComponent;
 
     if (showSuggestions && searchInput) {
@@ -160,4 +161,5 @@ Search.defaultProps = {
   suggestions: [],
   onSubmit: () => {},
 };
+
 export default Search;
